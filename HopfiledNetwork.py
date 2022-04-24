@@ -39,7 +39,9 @@ class HopfieldNetwork:
         
         pattern_weight_matrix = Matrix.clear_diagonal(pattern_weight_matrix)
         
+# porque somar matrizes?
         self.weight_matrix = Matrix.add_matrices(self.weight_matrix, pattern_weight_matrix)
+        
         
     def recall(self, pattern):
         pattern_bipolar = HopfieldNetwork.transform(pattern)
@@ -61,7 +63,8 @@ class HopfieldNetwork:
 
 if __name__ == '__main__':
     
-    network = HopfieldNetwork(dimension=4)
-    network.train(np.array([1, 1, 1, 1]))
-    network.recall(np.array([1, 0, 1, 0]))
+    network = HopfieldNetwork(9)
+    network.train(np.array([1, 1, 1, 1, 0, 0, 1, 1, 1]))
+    network.train(np.array([1, 1, 1, 0, 1, 0, 0, 1, 0]))
+    network.recall(np.array([1, 0, 1, 0, 1, 0, 0, 1, 0]))
     
